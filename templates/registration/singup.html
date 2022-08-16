@@ -1,5 +1,7 @@
 {% extends '_base.html' %}
 
+{% load crispy_forms_tags %}
+
 {% block page_title %}
     Sing Up
 {% endblock %}
@@ -7,7 +9,7 @@
 {% block content %}
     <form action="" method="post">
     {% csrf_token %}
-    {{ form.as_p }}
+    {{ form|crispy }}
     <button type="submit" class="btn btn-primary"> Sing Up </button>
     </form>
 
