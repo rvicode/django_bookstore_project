@@ -1,0 +1,22 @@
+{% extends '_base.html' %}
+
+{% block page_title %}
+    ویرایش کتاب {{ book.title }}
+{% endblock %}
+
+{% block content %}
+    <form class="container" method="post">
+        {% csrf_token %}
+        {% for forms in form %}
+            {{ forms.label }}
+            {{ forms }}
+            <hr>
+
+        {% endfor %}
+
+        <button class="btn btn-primary" type="submit">تایید</button>
+    </form>
+
+
+
+{% endblock %}
