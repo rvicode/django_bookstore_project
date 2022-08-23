@@ -8,7 +8,7 @@
 
     <h1>{{ book.title }}</h1>
     <h2>{{ book.author }}</h2>
-    <h4>{{ book.description }}</h4>
+    <h4>{{ book.description|linebreaks }}</h4>
     <h4>{{ book.price }}</h4>
     <a href="{% url 'book_update' book.id %}"><button class="btn btn-primary">ویرایش</button></a>
         <a href="{% url 'book_delete' book.id %}"><button class="btn btn-danger">حذف</button></a>
