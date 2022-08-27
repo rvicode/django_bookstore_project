@@ -1,10 +1,10 @@
 {% extends '_base.html' %}
 
-{% block page_title %}
+{% block title %}
     ویرایش کتاب{{ book.title }}
 {% endblock %}
 
-{% block content %}
+{% block body %}
     <form class="container" method="post">
         {% csrf_token %}
         {{ form.as_p }}
