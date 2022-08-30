@@ -5,28 +5,30 @@
 {% endblock %}
 
 {% block body %}
-   <div class="container mt-4">
+    <div class="container mt-4">
         <div class="row flex-row-reverse justify-content-md-center">
             {% for item in books %}
-            <div class="card m-2" style="max-width: 45%">
-                <div class="row g-0 h-100" dir="rtl">
-                    <div class="col-md-4">
-                        <img src="https://newcdn.fidibo.com/images/books/69249_94233_normal.jpg"
-                             class="img-fluid rounded-start" alt="...">
-                    </div>
-                    <div class="col-md-8 h-100">
-                        <div class="d-flex flex-column justify-content-between h-100">
-                            <div class="card-body">
-                                <a href="{% url 'book_detail' item.id %}"><h3 class="card-title"><strong>{{ item.title|title }}</strong></h3></a>
-                                <p class="card-text pt-3">{{ item.description }}</p>
-                                <p class="text-muted">نویسنده:{{ item.author }}</p>
+                <div class="card m-2" style="max-width: 45%">
+                    <div class="row g-0 h-100" dir="rtl">
+                        <div class="col-md-4">
+                            {% if item.cover %}
+                                <img src="{{ item.cover.url }}" alt="img">
+                            {% endif %}
+                        </div>
+                        <div class="col-md-8 h-100">
+                            <div class="d-flex flex-column justify-content-between h-100">
+                                <div class="card-body">
+                                    <a href="{% url 'book_detail' item.id %}"><h3 class="card-title">
+                                        <strong>{{ item.title|title }}</strong></h3></a>
+                                    <p class="card-text pt-3">{{ item.description }}</p>
+                                    <p class="text-muted">نویسنده:{{ item.author }}</p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
             {% endfor %}
         </div>
-   </div>
+    </div>
 
 {% endblock %}
