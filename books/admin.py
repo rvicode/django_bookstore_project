@@ -7,4 +7,4 @@ admin.site.register(Book)
 
 @admin.register(Comment)
 class CommentAdmin(admin.ModelAdmin):
-    list_display = ('user', 'book', 'text', 'datetime_created', )
+    list_display = ('user', 'book', 'text', 'datetime_created', 'recommend', 'is_active' )

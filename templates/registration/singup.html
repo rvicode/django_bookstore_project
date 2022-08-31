@@ -12,6 +12,7 @@
     {% csrf_token %}
     {{ form|crispy }}
     <p>Do you have accounts? <a href="{% url 'login' %}">login</a></p>
+        <button type="submit" class="btn btn-primary"> Sing Up</button>
     </form>
-    <button type="submit" class="btn btn-primary"> Sing Up</button>
+
 {% endblock %}
