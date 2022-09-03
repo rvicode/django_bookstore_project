@@ -17,11 +17,14 @@
                         </div>
                         <div class="col-xs-12 col-md-6 text-center text-md-end mt-md-1 mt-4">
                             <h1>{{ book.title|title }}</h1>
-                            <a href="{% url 'book_delete' book.id %}">حذف</a>
-                            <span> | </span>
-                            <a href="{% url 'book_update' book.id %}">ویرایش</a>
                             <h5 class="small my-1"><span class="text-muted">نویسنده: </span>{{ book.author }}</h5>
-                            <h5 class="small my-1"><span class="text-muted">ایجاد کننده: </span>{{ book.user.username }}</h5>
+                            <h5 class="small my-1"><span class="text-muted">ایجاد کننده: </span>{{ book.user.username }}
+                            </h5>
+                            {% if book.user == user %}
+                                <a href="{% url 'book_delete' book.id %}"><button class="btn btn-danger">حذف</button></a>
+                                <span> | </span>
+                                <a href="{% url 'book_update' book.id %}"><button class="btn btn-primary">ویرایش</button></a>
+                            {% endif %}
                         </div>
                         <div class="col-xs-12 col-md-3 d-flex flex-column">
                             <h3 class="align-self-center pt-2 text-muted align-self-md-end">
